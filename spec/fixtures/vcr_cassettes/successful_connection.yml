@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://formhub.org/concordiadiscors/forms/survey/api
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - formhub.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 21 May 2014 10:49:51 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - gunicorn/0.15.0
+      Access-Control-Allow-Headers:
+      - Accept, Origin, X-Requested-With, Authorization
+      Content-Language:
+      - en-us
+      Vary:
+      - Accept-Language, Cookie
+      Etag:
+      - "\"29c06f8ea5b6a1ac0301ef2e10305bea\""
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: UTF-8
+      string: "[{\"meta/instanceID\": \"uuid:be1b882a-b377-4cf0-95d3-c2acc8d04e7a\",
+        \"name\": \"georges\", \"_submission_time\": \"2014-05-15T16:29:00\", \"age\":
+        \"12\", \"_uuid\": \"be1b882a-b377-4cf0-95d3-c2acc8d04e7a\", \"_bamboo_dataset_id\":
+        \"\", \"_tags\": [], \"_attachments\": [], \"_geolocation\": [null, null],
+        \"end_time\": \"2014-05-15T17:28:59.000+01:00\", \"_xform_id_string\": \"survey\",
+        \"imei\": \"enketo.formhub.org:fSucCmZ5zwzNcTe1\", \"phonenumber\": \"no phonenumber
+        property in enketo\", \"_status\": \"submitted_via_web\", \"_id\": 3318651,
+        \"start_time\": \"2014-05-15T17:28:43.000+01:00\", \"today\": \"2014-05-15\",
+        \"formhub/uuid\": \"1bfb7222748a4ee98106ea7d7a9c72cf\"}, {\"meta/instanceID\":
+        \"uuid:2aebfa29-6284-4c3a-9c3f-6eb604f89194\", \"age\": \"23\", \"name\":
+        \"loic\", \"_submission_time\": \"2014-05-15T16:28:19\", \"start_time\": \"2014-05-15T17:27:57.000+01:00\",
+        \"_uuid\": \"2aebfa29-6284-4c3a-9c3f-6eb604f89194\", \"_bamboo_dataset_id\":
+        \"\", \"_tags\": [], \"_attachments\": [], \"imei\": \"enketo.formhub.org:fSucCmZ5zwzNcTe1\",
+        \"_geolocation\": [null, null], \"end_time\": \"2014-05-15T17:28:18.000+01:00\",
+        \"gender\": \"female\", \"_xform_id_string\": \"survey\", \"phonenumber\":
+        \"no phonenumber property in enketo\", \"_status\": \"submitted_via_web\",
+        \"_id\": 3318647, \"pizza_fan\": \"no\", \"today\": \"2014-05-15\", \"formhub/uuid\":
+        \"1bfb7222748a4ee98106ea7d7a9c72cf\"}]"
+    http_version: 
+  recorded_at: Wed, 21 May 2014 10:49:53 GMT
+recorded_with: VCR 2.9.0
