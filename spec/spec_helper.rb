@@ -1,7 +1,6 @@
 require 'vcr'
 require 'webmock'
 require 'webmock/rspec'
-require 'factory_girl'
 require 'yaml'
 require 'cgi'
 
