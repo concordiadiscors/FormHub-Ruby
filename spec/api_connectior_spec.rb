@@ -68,9 +68,7 @@ describe FormhubRuby::ApiConnector do
         connection.data.length.should == 1
       end
     end
-
-
-      
+    
   end
 
 end
