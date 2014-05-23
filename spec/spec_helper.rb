@@ -3,7 +3,7 @@ require 'webmock'
 require 'webmock/rspec'
 require 'factory_girl'
 require 'yaml'
-require 'CGI'
+require 'cgi'
 
 RSpec.configure do |config|
   FactoryGirl.find_definitions
