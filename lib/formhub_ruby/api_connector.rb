@@ -1,6 +1,6 @@
 require 'net/http'
 require 'json'
-require 'CGI'
+require 'cgi'
 module FormhubRuby
   class ApiConnector
     attr_reader :formname, :filetype, :username, :password, :data
