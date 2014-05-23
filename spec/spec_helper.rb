@@ -6,8 +6,6 @@ require 'yaml'
 require 'cgi'
 
 RSpec.configure do |config|
-  FactoryGirl.find_definitions
-
   config.include WebMock::API
   config.before(:each) do
     WebMock.reset!
