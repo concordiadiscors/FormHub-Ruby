@@ -49,7 +49,7 @@ module FormhubRuby
 
     def api_query
       if @query
-        "query=#{URI.escape @query.to_json}"
+        "query=#{CGI.escape stringify_hash_values(@query).to_json}"
       end
     end
 
@@ -71,6 +71,10 @@ module FormhubRuby
       if @limit
         "limit=#{@limit.to_s}"
       end
+    end
+
+    def stringify_hash_values(hash)
+      hash.merge(hash){|k,hashv|hashv.to_s}
     end
 
     # end

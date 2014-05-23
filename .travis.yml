@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+  - 2.1.0
+  - 2.0.0
+  - 1.9.3
+script: 
+  - bundle exec rspec spec/
+
+bundler_args: --binstubs=./bundler_stubs
+
+# addons:
+#   code_climate:
+#     repo_token: 161c371501ee0f5ff7656178f8265702fd9f6a069652bcbeeee38002a3add8c9
+branches:
+  only:
+    - master
+    - develop
