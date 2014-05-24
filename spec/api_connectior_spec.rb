@@ -19,8 +19,8 @@ describe FormhubRuby::ApiConnector do
       VCR.use_cassette 'successful_connection' do 
         connection = FormhubRuby::ApiConnector.new(formname: 'survey')
         connection.fetch
-        connection.data.should be_a_kind_of(Array)
-        connection.data[0].should be_a_kind_of(Object)
+        expect(connection.data).to be_a_kind_of(Array)
+        expect(connection.data[0]).to be_a_kind_of(Object)
       end
     end
 
@@ -38,34 +38,34 @@ describe FormhubRuby::ApiConnector do
 
     it "does not add any extraneaous query" do
        connection = FormhubRuby::ApiConnector.new(formname: 'survey')
-       connection.api_uri.should == "http://formhub.org/#{username}/forms/survey/api"
+       expect(connection.api_uri).to eq("http://formhub.org/#{username}/forms/survey/api")
     end
 
     it "does form a simple query" do
       connection.query = {age: 12}
-      connection.api_uri.should == "http://formhub.org/#{username}/forms/survey/api?query=%7B%22age%22%3A%2212%22%7D"
+      expect(connection.api_uri).to eq("http://formhub.org/#{username}/forms/survey/api?query=%7B%22age%22%3A%2212%22%7D")
       VCR.use_cassette 'age_query' do
         connection.fetch
-        connection.data.length.should == 1
+        expect(connection.data.length).to eq(1)
       end
 
     end
 
     it "formulates a query with a start" do
       connection.start = 1
-      connection.api_uri.should == "http://formhub.org/#{username}/forms/survey/api?start=1"
+      expect(connection.api_uri).to eq("http://formhub.org/#{username}/forms/survey/api?start=1")
       VCR.use_cassette 'query_start' do
         connection.fetch
-        connection.data.length.should == 1
+        expect(connection.data.length).to eq(1)
       end
     end
 
     it "formulates a query with a limit" do
       connection.limit = 1
-      connection.api_uri.should == "http://formhub.org/#{username}/forms/survey/api?limit=1"
+      expect(connection.api_uri).to eq("http://formhub.org/#{username}/forms/survey/api?limit=1")
       VCR.use_cassette 'query_limit' do
         connection.fetch
-        connection.data.length.should == 1
+        expect(connection.data.length).to eq(1)
       end
     end
     
