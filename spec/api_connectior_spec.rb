@@ -45,6 +45,7 @@ describe FormhubRuby::ApiConnector do
 
     it "does form a simple query" do
       connection.query = {age: 12}
+
       expect(connection.api_uri).to eq("http://formhub.org/#{username}/forms/survey/api?query=%7B%22age%22%3A%2212%22%7D")
       VCR.use_cassette 'age_query' do
         connection.fetch
@@ -87,7 +88,7 @@ describe FormhubRuby::ApiConnector do
       connection.limit = 1
       VCR.use_cassette "just_get_the_count" do
         response = connection.get_count
-        expect(response[0]['count']).to eq(4)
+        expect(response).to eq(4)
       end 
 
      end 
