@@ -1,10 +1,12 @@
 require 'net/http'
 require 'json'
 require 'cgi'
+require 'addressable/uri'
+
 module FormhubRuby
   class ApiConnector
     attr_reader :formname, :filetype, :username, :password, :data
-    attr_accessor :query, :start, :limit
+    attr_accessor :query, :start, :limit, :sort, :fields
 
 
     def initialize(args) 
@@ -15,13 +17,25 @@ module FormhubRuby
       @query = args[:query]
       @start = args[:start] 
       @limit = args[:limit]
+      @sort = args[:sort]
+      @fields = args[:fields]
     end
 
     def fetch
-      # CAN DO THAT A LATER STAGE: Define different url format
-      # for different data point formats
-      # uri = URI(form_uri)         
-      uri = URI(api_uri)
+      get_response(api_uri)
+    end
+
+    def get_count
+      get_response("#{api_uri}&count=1")
+    end
+
+
+
+
+    # private
+
+    def get_response(custom_uri)
+      uri = URI(custom_uri)
       req = Net::HTTP::Get.new(uri)
       req.basic_auth @username, @password
       response = Net::HTTP.start(uri.hostname, uri.port) do |http|
@@ -35,7 +49,6 @@ module FormhubRuby
       end
     end
 
-    # private
 
     def api_uri
       "http://formhub.org/#{@username}/forms/#{@formname}/api" + api_parameters.to_s
@@ -54,7 +67,7 @@ module FormhubRuby
     end
 
     def api_parameters_array
-      [api_query, start, limit]
+      [api_query, start, limit, sort_query, fields_query]
     end
 
     def api_parameters_joined
@@ -75,6 +88,29 @@ module FormhubRuby
 
     def stringify_hash_values(hash)
       hash.merge(hash){|k,hashv|hashv.to_s}
+    end
+
+    # Note that integers seem to be stored as strings in Formhub database,
+    # and will be sorted as such
+
+    def sort_query
+      if @sort
+        validates_sort
+        "sort=#{CGI.escape @sort.to_json}"
+      end
+    end
+
+    def fields_query
+      if @fields
+        "fields=#{CGI.escape  @fields.to_json}"  
+      end    
+    end
+
+    def validates_sort
+      unless @sort.values.all? { |value| value == 1 || value == -1}
+        raise 'The sort option is hash taking +1 (ascending) or -1 (descending) value '
+      end
+
     end
 
     # end

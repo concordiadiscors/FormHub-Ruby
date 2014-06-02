@@ -2,12 +2,14 @@ require 'formhub_ruby'
 require 'spec_helper'
 require 'yaml'
 
+# Currently 4 records on my account for the survey form
+
 describe FormhubRuby::ApiConnector do
   before :each do
     credentials = YAML.load_file('spec/fixtures/test_credentials.yml')
     FormhubRuby.configure do |config|
-      config.username = credentials['username']
-      config.password = credentials['password']
+      config.username = credentials['username'] || 'fake'
+      config.password = credentials['password'] || 'fake'
     end
   end
   
@@ -56,7 +58,7 @@ describe FormhubRuby::ApiConnector do
       expect(connection.api_uri).to eq("http://formhub.org/#{username}/forms/survey/api?start=1")
       VCR.use_cassette 'query_start' do
         connection.fetch
-        expect(connection.data.length).to eq(1)
+        expect(connection.data.length).to eq(3)
       end
     end
 
@@ -68,6 +70,55 @@ describe FormhubRuby::ApiConnector do
         expect(connection.data.length).to eq(1)
       end
     end
+
+    it "combines a query with a start and a limit" do
+      connection.start = 1
+      connection.limit = 1
+      expect(connection.api_uri).to eq("http://formhub.org/#{username}/forms/survey/api?start=1&limit=1")
+      VCR.use_cassette 'query_start_and_limit' do
+        connection.fetch
+        expect(connection.data.length).to eq(1)
+      end
+    end
+
+
+    it "just returns the count of rows for the query" do
+     connection.start = 1
+      connection.limit = 1
+      VCR.use_cassette "just_get_the_count" do
+        response = connection.get_count
+        expect(response[0]['count']).to eq(4)
+      end 
+
+     end 
+
+
+     it "sorts the data according to the supplied params" do
+
+      connection.sort = {name: -1}
+
+       VCR.use_cassette "sorts_properly" do
+        connection.fetch
+        expect(connection.data.map{|row| row["name"]}  ).to eq(['napoléon', 'loic', 'georges', 'Robert'])
+       end 
+
+      end 
+
+      it "only retrieve the selected fields" do
+
+       connection.fields = [:name, :age]
+       puts connection.api_uri
+
+        VCR.use_cassette "retrieve_selected_fields_only" do
+          connection.fetch
+         expect(connection.data.first['pizza_fan']).to be_nil
+         expect(connection.data.first['name']).not_to be_nil
+        end
+
+
+
+       end 
+
     
   end
 
