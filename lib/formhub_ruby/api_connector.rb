@@ -19,6 +19,7 @@ module FormhubRuby
       @limit = args[:limit]
       @sort = args[:sort]
       @fields = args[:fields]
+      @data = []
     end
 
     def fetch
@@ -26,7 +27,8 @@ module FormhubRuby
     end
 
     def get_count
-      get_response("#{api_uri}&count=1")
+      response = get_response("#{api_uri}&count=1")
+      response[0]['count']
     end
 
 
