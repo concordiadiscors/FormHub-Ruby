@@ -28,7 +28,7 @@ More details on their JSON API can be foud on their [wiki page]( https://github.
 
 Create a connection like so:
 
-    connection = FormhubRuby::API.new(username: 'fake_username', password: 'fake_password', formnamne: 'my_form_name' )
+    connection = FormhubRuby::ApiConnector.new(username: 'fake_username', password: 'fake_password', formnamne: 'my_form_name' )
 
 You can also pass authentification configuration arguments in a block (e.g. in a initializer file, etc...):
 
