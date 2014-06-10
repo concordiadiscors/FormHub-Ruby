@@ -12,10 +12,23 @@ describe FormhubRuby::ApiConnector do
       config.password = credentials['password'] || 'fake'
     end
   end
+
+  let(:connection) {FormhubRuby::ApiConnector.new(formname: 'survey')}
+  let(:username) {FormhubRuby.configuration.username}
   
 
   context 'when connecting to the API' do
     
+    it 'appropriately converts data cast as strings in Formhub back to integers' do
+      connection.query = {age: 18}
+      connection.cast_integers = true
+
+      expect(connection.api_uri).to eq("http://formhub.org/#{username}/forms/survey/api?query=%7B%22age%22%3A%2218%22%7D")
+      VCR.use_cassette 'get_integer' do
+        connection.fetch
+        expect(connection.data.first['age']).to be_an(Integer)
+      end
+    end    
 
     it 'successfully connects to the FormHub API and retrieve JSON Data' do
       VCR.use_cassette 'successful_connection' do 
@@ -35,8 +48,7 @@ describe FormhubRuby::ApiConnector do
 
   context 'when formulating a more complex query string' do
 
-    let(:connection) {FormhubRuby::ApiConnector.new(formname: 'survey')}
-    let(:username) {FormhubRuby.configuration.username}
+
 
     it "does not add any extraneaous query" do
        connection = FormhubRuby::ApiConnector.new(formname: 'survey')
@@ -44,9 +56,9 @@ describe FormhubRuby::ApiConnector do
     end
 
     it "does form a simple query" do
-      connection.query = {age: 12}
+      connection.query = {age: 18}
 
-      expect(connection.api_uri).to eq("http://formhub.org/#{username}/forms/survey/api?query=%7B%22age%22%3A%2212%22%7D")
+      expect(connection.api_uri).to eq("http://formhub.org/#{username}/forms/survey/api?query=%7B%22age%22%3A%2218%22%7D")
       VCR.use_cassette 'age_query' do
         connection.fetch
         expect(connection.data.length).to eq(1)
@@ -108,7 +120,6 @@ describe FormhubRuby::ApiConnector do
       it "only retrieve the selected fields" do
 
        connection.fields = [:name, :age]
-       puts connection.api_uri
 
         VCR.use_cassette "retrieve_selected_fields_only" do
           connection.fetch

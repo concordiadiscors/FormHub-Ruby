@@ -6,7 +6,7 @@ require 'addressable/uri'
 module FormhubRuby
   class ApiConnector
     attr_reader :formname, :filetype, :username, :password, :data
-    attr_accessor :query, :start, :limit, :sort, :fields
+    attr_accessor :query, :start, :limit, :sort, :fields, :cast_integers
 
 
     def initialize(args) 
@@ -19,6 +19,7 @@ module FormhubRuby
       @limit = args[:limit]
       @sort = args[:sort]
       @fields = args[:fields]
+      @cast_integers = args[:cast_integers] || false
       @data = []
     end
 
@@ -45,7 +46,15 @@ module FormhubRuby
       end
 
       begin
-        @data = JSON.parse(response.body)
+        returned_data = JSON.parse(response.body)
+        @data = if @cast_integers
+                  returned_data.map do |row|
+                    Hash[ row.map { |a, b| [a, cast_to_value_to_int(b)] } ]
+                  end
+                else 
+                 returned_data
+                end
+      
       rescue
         raise 'API connection error'
       end
@@ -115,7 +124,14 @@ module FormhubRuby
 
     end
 
-    # end
+    def cast_to_value_to_int(str)
+      begin
+        Integer(str)
+      rescue ArgumentError, TypeError
+        str
+      end
+    end
+
   end
 end
 

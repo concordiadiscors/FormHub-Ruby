@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 02 Jun 2014 11:53:49 GMT
+      - Tue, 10 Jun 2014 11:44:03 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,7 +37,7 @@ http_interactions:
       Vary:
       - Accept-Language, Cookie
       Etag:
-      - "\"28b1d13b897184580960f6691040cc94\""
+      - "\"be4dbf299020d3a4ac8c3915eb607f29\""
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Methods:
@@ -47,9 +47,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: "[{\"age\": \"15\", \"_id\": 3413156, \"name\": \"napol\\u00e9on\"},
-        {\"age\": \"12\", \"_id\": 3318651, \"name\": \"georges\"}, {\"age\": \"23\",
-        \"_id\": 3318647, \"name\": \"loic\"}, {\"age\": \"100\", \"_id\": 3413155,
-        \"name\": \"Robert\"}]"
+        {\"age\": \"23\", \"_id\": 3318647, \"name\": \"loic\"}, {\"age\": \"100\",
+        \"_id\": 3413155, \"name\": \"Robert\"}, {\"age\": \"18\", \"_id\": 3318651,
+        \"name\": \"georges\"}]"
     http_version: 
-  recorded_at: Mon, 02 Jun 2014 11:53:49 GMT
+  recorded_at: Tue, 10 Jun 2014 11:44:03 GMT
 recorded_with: VCR 2.9.0

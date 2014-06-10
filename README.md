@@ -72,6 +72,12 @@ Finally you can also sort the results:  1 denotes an ascending sort while -1 den
 
 As far as I could tell though, the integers seem to be stored as strings in the Formhub database, so the sorting of these would be quite irrelevant.
 
+Also consequently added: a parameter to cast integers types:
+		
+		connection.cast_integers = true # false by default
+
+Be aware that this will also cast float values to integer values.
+
 
 ## Contributing
 
