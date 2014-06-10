@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['loic@loicseigland.ie']
   spec.summary       = %q(Simple Client for the Formhub API)
   # spec.description   = %q(TODO: Write a longer description. Optional.)
-  spec.homepage      = 'http://loicseigland.ie'
+  spec.homepage      = 'https://github.com/concordiadiscors/FormHub-Ruby'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
