@@ -28,7 +28,7 @@ More details on their JSON API can be foud on their [wiki page]( https://github.
 
 Create a connection like so:
 
-    connection = FormhubRuby::API.new(username: 'fake_username', password: 'fake_password', formnamne: 'my_form_name' )
+    connection = FormhubRuby::ApiConnector.new(username: 'fake_username', password: 'fake_password', formnamne: 'my_form_name' )
 
 You can also pass authentification configuration arguments in a block (e.g. in a initializer file, etc...):
 
@@ -71,6 +71,12 @@ Finally you can also sort the results:  1 denotes an ascending sort while -1 den
     connection.sort =  {name: 1} # Ascending by name
 
 As far as I could tell though, the integers seem to be stored as strings in the Formhub database, so the sorting of these would be quite irrelevant.
+
+Also consequently added: a parameter to cast integers types:
+		
+		connection.cast_integers = true # false by default
+
+Be aware that this will also cast float values to integer values.
 
 
 ## Contributing

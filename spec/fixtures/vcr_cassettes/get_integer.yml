@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 10 Jun 2014 11:44:01 GMT
+      - Tue, 10 Jun 2014 11:44:00 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -56,5 +56,5 @@ http_interactions:
         \"_id\": 3318651, \"start_time\": \"2014-05-15T17:28:43.000+01:00\", \"today\":
         \"2014-05-15\", \"meta/deprecatedID\": \"uuid:be1b882a-b377-4cf0-95d3-c2acc8d04e7a\"}]"
     http_version: 
-  recorded_at: Tue, 10 Jun 2014 11:44:01 GMT
+  recorded_at: Tue, 10 Jun 2014 11:44:00 GMT
 recorded_with: VCR 2.9.0
