@@ -15,11 +15,11 @@ RSpec.configure do |config|
 
       # Created a yml file with credentials 
       # ignored by git repository
-      credentials = YAML.load_file('spec/fixtures/test_credentials.yml')
+
       
-      c.filter_sensitive_data('<USERNAME>') { credentials['username'] }
-      c.filter_sensitive_data('<PASSWORD>') { CGI.escape credentials['password'] }
-      c.filter_sensitive_data('<PASSWORD>') { credentials['password'] }
+      c.filter_sensitive_data('<USERNAME>') { ENV['FORMHUB_USERNAME'] }
+      c.filter_sensitive_data('<PASSWORD>') { CGI.escape ENV['FORMHUB_PASSWORD'] }
+      c.filter_sensitive_data('<PASSWORD>') { ENV['FORMHUB_PASSWORD'] }
 
       
     end

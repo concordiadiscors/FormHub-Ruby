@@ -15,3 +15,7 @@ branches:
   only:
     - master
     - develop
+
+env:
+  - secure: "IorV8dG9AAjHUfrkHwkaGki/Jbql48HuQruIRi5I1PFmAUpGS1VIPrA6ElckM7usAQDGWiP1QoKNRWXrCdE/ea3r0zhKaN0DwB1fBVRqnfnuOUaFkyWjpaE2iXB8c7DXDPCR2oShPYpXnXRsm0xM/TakJ65mhcRNG+f/nI1WB34="
+  - secure: "afVzArcwPhbQo56SOt9g/liD2/ePpSBFGstrDKv1eRquSr27zV7YxOqJ8EvFoRX1RJu1EE0Wsjgn/we7S/n7CR0AIV3/pYeOn62QJrvJMjVJt3F94b0lnfklBtHkdyhOPZeLbqKYpBr/ADXbDHc8tpvDu5oXVYQeIYifDHzvT8Y="

@@ -1,15 +1,15 @@
 require 'formhub_ruby'
 require 'spec_helper'
-require 'yaml'
+require 'dotenv'
+Dotenv.load
 
 # Currently 4 records on my account for the survey form
 
 describe FormhubRuby::ApiConnector do
   before :each do
-    credentials = YAML.load_file('spec/fixtures/test_credentials.yml')
     FormhubRuby.configure do |config|
-      config.username = credentials['username'] || 'fake'
-      config.password = credentials['password'] || 'fake'
+      config.username = ENV['FORMHUB_USERNAME']
+      config.password = ENV['FORMHUB_PASSWORD']
     end
   end
 
