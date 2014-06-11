@@ -10,7 +10,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
       Host:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 10 Jun 2014 11:44:03 GMT
+      - Wed, 11 Jun 2014 21:56:46 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,16 +37,16 @@ http_interactions:
       Vary:
       - Accept-Language, Cookie
       Etag:
-      - "\"14a3ce9385ab94d0a05702445e9cb804\""
+      - '"14a3ce9385ab94d0a05702445e9cb804"'
       Access-Control-Allow-Origin:
-      - "*"
+      - '*'
       Access-Control-Allow-Methods:
       - GET
       Strict-Transport-Security:
       - max-age=31536000
     body:
       encoding: UTF-8
-      string: "[{\"count\": 4}]"
+      string: '[{"count": 4}]'
     http_version: 
-  recorded_at: Tue, 10 Jun 2014 11:44:02 GMT
-recorded_with: VCR 2.9.0
+  recorded_at: Wed, 11 Jun 2014 21:56:46 GMT
+recorded_with: VCR 2.9.2
