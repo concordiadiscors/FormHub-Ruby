@@ -9,10 +9,14 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Loïc Seigland']
   spec.email         = ['loic@loicseigland.ie']
   spec.summary       = %q(Simple Client for the Formhub API)
-  # spec.description   = %q(TODO: Write a longer description. Optional.)
+  spec.description   = = <<-EOF
+    This is a very simple API Wrapper for the Formhub.org platform. 
+    It uses the platform JSON endpoints, Please refer to Formhub's
+    developers help page if you want to know more about their API.
+  EOF
   spec.homepage      = 'https://github.com/concordiadiscors/FormHub-Ruby'
   spec.license       = 'MIT'
-
+  spec.required_ruby_version = '>= 2.0'
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})

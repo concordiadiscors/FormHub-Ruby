@@ -1,5 +1,6 @@
 # FormhubRuby
-[![Build Status](http://img.shields.io/travis/concordiadiscors/FormHub-Ruby.svg)](https://travis-ci.org/concordiadiscors/FormHub-Ruby)
+[![Build Status](http://img.shields.io/travis/concordiadiscors/FormHub-Ruby.svg?style=flat)](https://travis-ci.org/concordiadiscors/FormHub-Ruby)
+[![Gem Version](http://img.shields.io/gem/v/formhub_ruby.svg?style=flat)](http://rubygems.org/gems/formhub_ruby)
 
 A very simple Ruby Wrapper for the Formhub API
 
