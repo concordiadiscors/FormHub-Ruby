@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Loïc Seigland']
   spec.email         = ['loic@loicseigland.ie']
   spec.summary       = %q(Simple Client for the Formhub API)
-  spec.description   = = <<-EOF
-    This is a very simple API Wrapper for the Formhub.org platform. 
+  spec.description   = <<-EOF
+    This is a very simple API Wrapper for the Formhub.org platform.
     It uses the platform JSON endpoints, Please refer to Formhub's
     developers help page if you want to know more about their API.
   EOF
