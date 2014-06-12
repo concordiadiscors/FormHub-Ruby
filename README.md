@@ -1,6 +1,5 @@
-[![Build Status](http://img.shields.io/travis/concordiadiscors/FormHub-Ruby.svg)](https://travis-ci.org/concordiadiscors/FormHub-Ruby)
-
 # FormhubRuby
+[![Build Status](http://img.shields.io/travis/concordiadiscors/FormHub-Ruby.svg)](https://travis-ci.org/concordiadiscors/FormHub-Ruby)
 
 A very simple Ruby Wrapper for the Formhub API
 
