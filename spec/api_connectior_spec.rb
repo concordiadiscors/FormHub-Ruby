@@ -1,7 +1,9 @@
 require 'formhub_ruby'
 require 'spec_helper'
 require 'dotenv'
-Dotenv.load
+if File.exists?('.env')
+  Dotenv.load
+end
 
 # Currently 4 records on my account for the survey form
 

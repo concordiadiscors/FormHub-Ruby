@@ -10,7 +10,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
       Host:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 11 Jun 2014 21:56:47 GMT
+      - Thu, 12 Jun 2014 10:13:03 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,18 +37,19 @@ http_interactions:
       Vary:
       - Accept-Language, Cookie
       Etag:
-      - '"be4dbf299020d3a4ac8c3915eb607f29"'
+      - "\"be4dbf299020d3a4ac8c3915eb607f29\""
       Access-Control-Allow-Origin:
-      - '*'
+      - "*"
       Access-Control-Allow-Methods:
       - GET
       Strict-Transport-Security:
       - max-age=31536000
     body:
       encoding: UTF-8
-      string: '[{"age": "15", "_id": 3413156, "name": "napol\u00e9on"}, {"age": "23",
-        "_id": 3318647, "name": "loic"}, {"age": "100", "_id": 3413155, "name": "Robert"},
-        {"age": "18", "_id": 3318651, "name": "georges"}]'
+      string: "[{\"age\": \"15\", \"_id\": 3413156, \"name\": \"napol\\u00e9on\"},
+        {\"age\": \"23\", \"_id\": 3318647, \"name\": \"loic\"}, {\"age\": \"100\",
+        \"_id\": 3413155, \"name\": \"Robert\"}, {\"age\": \"18\", \"_id\": 3318651,
+        \"name\": \"georges\"}]"
     http_version: 
-  recorded_at: Wed, 11 Jun 2014 21:56:47 GMT
-recorded_with: VCR 2.9.2
+  recorded_at: Thu, 12 Jun 2014 10:12:35 GMT
+recorded_with: VCR 2.9.0
