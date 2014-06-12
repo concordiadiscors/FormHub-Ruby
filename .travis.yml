@@ -1,21 +1,15 @@
 language: ruby
 rvm:
-  - 2.1.0
-  - 2.0.0
-  - 1.9.3
-script: 
-  - bundle exec rspec spec/
-
+- 2.1.0
+- 2.0.0
+script:
+- bundle exec rspec spec/
 bundler_args: --binstubs=./bundler_stubs
-
-# addons:
-#   code_climate:
-#     repo_token: 161c371501ee0f5ff7656178f8265702fd9f6a069652bcbeeee38002a3add8c9
 branches:
   only:
-    - master
-    - develop
-
+  - master
+  - develop
 env:
-  - secure: "IorV8dG9AAjHUfrkHwkaGki/Jbql48HuQruIRi5I1PFmAUpGS1VIPrA6ElckM7usAQDGWiP1QoKNRWXrCdE/ea3r0zhKaN0DwB1fBVRqnfnuOUaFkyWjpaE2iXB8c7DXDPCR2oShPYpXnXRsm0xM/TakJ65mhcRNG+f/nI1WB34="
-  - secure: "afVzArcwPhbQo56SOt9g/liD2/ePpSBFGstrDKv1eRquSr27zV7YxOqJ8EvFoRX1RJu1EE0Wsjgn/we7S/n7CR0AIV3/pYeOn62QJrvJMjVJt3F94b0lnfklBtHkdyhOPZeLbqKYpBr/ADXbDHc8tpvDu5oXVYQeIYifDHzvT8Y="
+  global:
+  - secure: gAmJljRYi4Q856xuMD8WEKzL/BCe1U64ysKLVaNJG0kStfbhdNlCKe9BNmAtRa1ux6/9sA5FA+rLMk6ydx9tGL4+w8J6qWPVseJ/HwsNupN77wy+2JBWXcEF6CybTB73lkVk411qhGc1jhjt7Qj5uRTWu52gwxZDR+x4rnBkcJs=
+  - secure: Z9nPj7KjMDZDMP3SyzMv3KO2AEc6OZxmIc+OPJ5WQrQDHqkN9Ur7d48E56PDeKshpdIYygk3xs87lheBDwHVHbZgesTTc05KinCOmJmSLcvE97Lz8CoHMpULDvmQpmyJspnRorTznKbaZ393eaa0q9peZrHkUD2f78IzZvmfmjs=

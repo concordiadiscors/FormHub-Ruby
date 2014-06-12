@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 12 Jun 2014 10:13:02 GMT
+      - Thu, 12 Jun 2014 12:17:47 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -83,5 +83,5 @@ http_interactions:
         \"100\", \"_geolocation\": [null, null], \"end_time\": \"2014-05-29T14:53:58.000+01:00\",
         \"gender\": \"male\", \"_id\": 3413155}]"
     http_version: 
-  recorded_at: Thu, 12 Jun 2014 10:12:34 GMT
+  recorded_at: Thu, 12 Jun 2014 12:17:18 GMT
 recorded_with: VCR 2.9.0
