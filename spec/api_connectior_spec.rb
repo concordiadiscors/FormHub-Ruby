@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'formhub_ruby'
 require 'spec_helper'
 require 'dotenv'
