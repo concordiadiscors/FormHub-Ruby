@@ -41,11 +41,12 @@ module FormhubRuby
       uri = URI(custom_uri)
       req = Net::HTTP::Get.new(uri)
       req.basic_auth @username, @password
-      response = Net::HTTP.start(uri.hostname, uri.port) do |http|
-        http.request(req)
-      end
-
       begin
+        response = Net::HTTP.start(uri.hostname, uri.port) do |http|
+          http.request(req)
+        end
+
+      
         returned_data = JSON.parse(response.body)
         @data = if @cast_integers
                   returned_data.map do |row|
