@@ -40,9 +40,11 @@ module FormhubRuby
     def get_response(custom_uri)
       uri = URI(custom_uri)
       req = Net::HTTP::Get.new(uri)
+
       req.basic_auth @username, @password
       begin
         response = Net::HTTP.start(uri.hostname, uri.port) do |http|
+          http.read_timeout = 15
           http.request(req)
         end
 
